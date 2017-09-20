@@ -27,7 +27,7 @@
 
   <body ng-app="app" ng-cloak>
 
-    <div ng-view layout-fill layout="column"></div>
+    <div ng-view></div>
 
     <!-- <script type="text/javascript" src="../node_modules/angular/angular.js"></script> -->
     <script type="text/javascript" src="assets/angular.min.js"></script>
@@ -41,10 +41,6 @@
     <script type="text/javascript" src="assets/angular-route.min.js"></script>
     <!-- <script type="text/javascript" src="../node_modules/angular-sanitize/angular-sanitize.js"></script> -->
     <script type="text/javascript" src="assets/angular-sanitize.min.js"></script>
-    <!-- <script type="text/javascript" src="../node_modules/angular-translate/dist/angular-translate.min.js"></script> -->
-    <script type="text/javascript" src="assets/angular-translate.min.js"></script>
-    <!-- <script type="text/javascript" src="../node_modules/angular-translate/dist/angular-translate-loader-partial.min.js"></script> -->
-    <script type="text/javascript" src="assets/angular-translate-loader-partial.min.js"></script>
     <!-- <script type="text/javascript" src="../node_modules/angular-marked/dist/angular-marked.min.js"></script> -->
     <script type="text/javascript" src="assets/angular-marked.min.js"></script>
 
@@ -52,9 +48,6 @@
     <script type="text/javascript" src="assets/d3.min.js"></script>
     <!-- <script type="text/javascript" src="../node_modules/marked/lib/marked.js"></script> -->
     <script type="text/javascript" src="assets/marked.js"></script>
-    <script type="text/javascript"  src="assets/FileSaver.js"></script>
-    <!-- <script type="text/javascript"  src="../../Facettage/src/facettage.js"></script> -->
-    <script type="text/javascript"  src="assets/facettage.js"></script>
 
     <script type="text/javascript"  src="src/services.js"></script>
     <script type="text/javascript"  src="src/directives.js"></script>
@@ -81,13 +74,13 @@ angular
 
   // Material theme
   $mdThemingProvider.theme('default')
-    .primaryPalette('amber', {
-      'default': '400'
+    .primaryPalette('brown', {
+      'default': '200'
     })
-    .accentPalette('teal', {
-      'default': '300'
+    .accentPalette('amber', {
+      'default': '600'
     })
-    .warnPalette('pink')
+    .warnPalette('lime')
     .backgroundPalette('grey', {
       'default': '100'
     })
