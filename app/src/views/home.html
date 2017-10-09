@@ -28,8 +28,10 @@
 	    md-colspan="1"
 	    md-colspan-gt-md="2"
 	  >
-	   	<div style="padding: 8px">
-		  	[Petit pitch à écrire]
+	   	<div style="padding: 16px; font-size: 1.6em; font-weight: 100">
+		  	<em>
+		  		Explorer les campagnes électorales de 2017 par les données numériques, des bulles de filtre aux nouvelles pratiques de mobilisation politique.
+		  	</em>
 		  </div>
 	  </md-grid-tile>
 
@@ -42,8 +44,13 @@
 	    	background: 'default-primary-100'
 		  }"
 	  >
-	  	<div style="padding: 8px">
-		  	[Liste des organisateurs]
+	  	<div style="padding: 8px" layout="row" layout-wrap>
+		  	<div flex="100" flex-gt-md="50" ng-repeat="orga in organisateurs" layout-fill>
+		  		<a ng-href="{{orga.link}}" target="_blank" layout="column" layout-align="center center">
+			  		<img ng-src="{{orga.logo}}" style="height: 70%; width: 70%">
+			  	</a>
+		  		<md-tooltip md-direction="left">{{orga.name}}</md-tooltip>
+		  	</div>
 		  </div>
 	  </md-grid-tile>
 
@@ -57,7 +64,7 @@
 		  }"
 	  >
 	   	<div style="padding: 8px">
-		  	[Lien vers le formulaire d'inscription]
+		  	[Lien à venir vers le formulaire d'inscription]
 		  </div>
 	  </md-grid-tile>
 
