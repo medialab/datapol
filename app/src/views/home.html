@@ -28,8 +28,10 @@
 	    md-colspan="1"
 	    md-colspan-gt-md="2"
 	  >
-	   	<div style="padding: 8px">
-		  	[Petit pitch à écrire]
+	   	<div style="padding: 16px; font-size: 1.6em; font-weight: 100">
+		  	<em>
+		  		Explorer les campagnes électorales de 2017 par les données numériques, des bulles de filtre aux nouvelles pratiques de mobilisation politique.
+		  	</em>
 		  </div>
 	  </md-grid-tile>
 
@@ -42,8 +44,13 @@
 	    	background: 'default-primary-100'
 		  }"
 	  >
-	  	<div style="padding: 8px">
-		  	[Liste des organisateurs]
+	  	<div style="padding: 8px" layout="row" layout-wrap>
+		  	<div flex="100" flex-gt-md="50" ng-repeat="orga in organisateurs" layout-fill>
+		  		<a ng-href="{{orga.link}}" target="_blank" layout="column" layout-align="center center">
+			  		<img ng-src="{{orga.logo}}" style="height: 70%; width: 70%">
+			  	</a>
+		  		<md-tooltip md-direction="left">{{orga.name}}</md-tooltip>
+		  	</div>
 		  </div>
 	  </md-grid-tile>
 
@@ -57,11 +64,39 @@
 		  }"
 	  >
 	   	<div style="padding: 8px">
-		  	[Lien vers le formulaire d'inscription]
+		  	[Lien à venir vers le formulaire d'inscription]
 		  </div>
 	  </md-grid-tile>
 
 	</md-grid-list>
+
+	<div layout="row">
+		<div
+			flex="25"
+			style="padding: 16px; background-image:url(res/hemicycle.png); background-position:top center;"
+		></div>
+
+		<div
+			flex="50"
+			layout="column"
+			style="padding: 16px; background-color: #FFF; "
+		>
+			<h3>Que disent les données numériques de la campagne présidentielle ?</h3>
+
+			<p>
+				Les campagnes des élections présidentielles et législatives de 2017 ont été l’occasion d’une intense mobilisation sur le web. Candidats, partis, médias, militants et internautes ont occupé les différents espaces numériques d’arguments, de slogans, de commentaires, d’échanges, de disputes, d’injures et de partages. Quels enseignements peut-on extraire de cette nouvelle archive politique ? Comment les échanges numériques ont-ils affectés la forme prise par la compétition entre les candidats ? Quels rôles ont joué les fakes news, l’exposition sélective (“bulle de filtre”), l’humour, les stratégies de communication dans la production de ce nouvel espace politique ? Si les données numériques ne donnent pas accès à ce que les sondages qualifie d’“opinion publique”, elles offrent en revanche un nouvel espace d’expression qui peut grandement enrichir nos connaissance des processus de mobilisation politique. Elles sont aussi le terrain d’un nouveau genre de recherche interdisciplinaire associant étroitement chercheurs en sciences humaines et sociales, informaticiens, designer de l’information et journalistes. Les données numériques appellent des méthodes et une restitution des résultats qui soient elles aussi numériques. Ce datasprint propose une manière originale d’expérimenter cette coopération autour des données entre les différentes disciplines qui savent les interpréter et les manipuler.
+			</p>
+			<p>
+				Du 29 novembre au 2 décembre 2017, se réuniront à Sciences Po informaticiens, politistes, designers et journalistes qui ont suivi les campagnes électorales françaises de l’année 2017. Ils vont explorer les données numériques de la campagne pour visualiser et interpréter de grands corpus de données politiques constitués lors de la campagne. Après trois jours de travail, ils présenteront le samedi 2 décembre le résultat numérique de leurs projets lors d’un événement ouvert où seront discutés les apports du numérique à la fabrication de l’élection.
+			</p>
+		</div>
+
+		<div
+			flex="25"
+			style="padding: 16px; background-image:url(res/graphe.png); background-position:center left;"
+		></div>
+
+	</div>
 
 	<div layout="row">
 
@@ -72,9 +107,18 @@
 			style="padding: 16px"
 		>
 			<h3>Corpus et données</h3>
-			<p>
-				Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-			</p>
+			<p>Les jeux de données suivants seront mis à disposition pendant le data sprint :</p>
+			<ul>
+				<li>Radarly-Linkfluence (Guilhem Fouetillou)</li>
+				<li>ISC Politoscope (David Chavalarias)</li>
+				<li>Bibliothèque de Sciences Po (Cynthia Pedroja)</li>
+				<li>Comptes Twitter des parlementaires (François Briatte)</li>
+				<li>Corpus de Tweets d’Idéo2017 (Julien Longhi)</li>
+				<li>Données CDSP</li>
+				<li>Catégories du Décodex du Monde (Mathieu Jacomy)</li>
+				<li>La Fabrique de la loi (Benjamin Ooghe)</li>
+				<li>Google Trends de la campagne électorale</li>
+			</ul>
 		</div>
 
 		<!-- Projets -->
@@ -85,9 +129,9 @@
 			md-colors="{
 	    	background: 'default-accent-200'
 		  }">
-			<h3>Projets</h3>
+			<h3>Projets (à venir)</h3>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				Lorsque les projets seront fixés, vous trouverez ici leur description.
 			</p>
 		</div>
 
@@ -104,13 +148,13 @@
 	    	background: 'default-accent-200-0.3'
 		  }"
 		>
-			<h3>Méthodes</h3>
+			<!-- <h3>Méthodes</h3>
 			<p>
 				à écrire
-			</p>
+			</p> -->
 			<h3>Outils</h3>
 			<p>
-				à écrire
+				à venir
 			</p>
 		</div>
 
@@ -139,7 +183,9 @@
     	background: 'default-accent-700'
 	  }"
 	>
-		Contact: x@x.x
+		<div>
+			Contact: <a href="mailto:audrey.baneyx@sciencespo.fr?subject=DATAPOL" target="_top">audrey.baneyx@sciencespo.fr</a>
+		</div>
 	</div>
 
 	<!-- Participants -->
@@ -152,9 +198,9 @@
 	  }"
 	>
 		<h3>Participants et auteurs de DATAPOL</h3>
-		<p>
-			...
-		</p>
+		<ul>
+			<li>...</li>
+		</ul>
 	</div>
 
 	<!-- Mentions légales -->
