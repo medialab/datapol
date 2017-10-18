@@ -25,6 +25,7 @@
 	  <!-- Pitch -->
 	  <md-grid-tile
 	    md-rowspan="1"
+	    md-rowspan-xs="2"
 	    md-colspan="1"
 	    md-colspan-gt-md="2"
 	    md-colors="{
@@ -42,6 +43,7 @@
 	  <!-- Organisateurs -->
 	  <md-grid-tile
 	    md-rowspan="2"
+	    md-rowspan-xs="4"
 	    md-colspan="1"
 	    md-colspan-gt-md="2"
 	  >
@@ -58,15 +60,21 @@
 	  <!-- Inscription -->
 	  <md-grid-tile
 	    md-rowspan="1"
+	    md-rowspan-xs="2"
 	    md-colspan="1"
 	    md-colspan-gt-sm="2"
 	    md-colors="{
 	    	background: 'default-primary-100'
 		  }"
 	  >
-	   	<div style="padding: 8px">
-		  	[Lien à venir vers le formulaire d'inscription]
-		  </div>
+	  	<div layout="column" layout-align="center center" layout-fill>
+	   		<p class="md-title" style="padding: 32px; text-align: center">
+	   			Venez découvrir les résultats du data sprint le Samedi 2 décembre après-midi
+	   		</p>
+		   	<div style="padding: 8px; text-align: center">
+			  	[Lien à venir vers le formulaire d'inscription]
+			  </div>
+			</div>
 	  </md-grid-tile>
 
 	</md-grid-list>
@@ -74,11 +82,15 @@
 	<div layout="row">
 		<div
 			flex="25"
+			flex-xs="10"
+			flex-sm="15"
 			style="padding: 16px; background-image:url(res/hemicycle.png); background-position:top center;"
 		></div>
 
 		<div
 			flex="50"
+			flex-xs="80"
+			flex-sm="70"
 			layout="column"
 			style="padding: 16px; background-color: #FFF; font-size: 1.2em;"
 		>
@@ -94,16 +106,19 @@
 
 		<div
 			flex="25"
+			flex-xs="10"
+			flex-sm="15"
 			style="padding: 16px; background-image:url(res/graphe.png); background-position:center left;"
 		></div>
 
 	</div>
 
-	<div layout="row">
+	<div layout="row" layout-wrap>
 
-		<!-- Corpus et données -->
+		<!-- Bloc 1 -->
 		<div
-			flex
+			flex="50"
+			flex-xs="100"
 			layout="column"
 			style="padding: 16px"
 		>
@@ -122,9 +137,10 @@
 			</ul>
 		</div>
 
-		<!-- Projets -->
+		<!-- Bloc 2 -->
 		<div
-			flex
+			flex="50"
+			flex-xs="100"
 			layout="column"
 			style="padding: 16px"
 			md-colors="{
@@ -138,11 +154,12 @@
 
 	</div>
 
-	<div layout="row">
+	<div layout="row" layout-wrap>
 
-		<!-- Méthodes et outils -->
+		<!-- Bloc 3 -->
 		<div
-			flex
+			flex="50"
+			flex-xs="100"
 			layout="column"
 			style="padding: 16px"
 			md-colors="{
@@ -159,9 +176,10 @@
 			</p>
 		</div>
 
-		<!-- Projets -->
+		<!-- Bloc 4 -->
 		<div
-			flex
+			flex="50"
+			flex-xs="100"
 			layout="column"
 			style="padding: 16px"
 			md-colors="{
