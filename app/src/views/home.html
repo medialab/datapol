@@ -46,8 +46,8 @@
 	    md-colspan-gt-md="2"
 	  >
 	  	<div style="padding: 8px" layout="row" layout-wrap>
-		  	<div flex="100" flex-gt-md="50" ng-repeat="orga in organisateurs" layout-fill>
-		  		<a ng-href="{{orga.link}}" target="_blank" layout="column" layout-align="center center">
+		  	<div flex="100" flex-gt-md="50" ng-repeat="orga in organisateurs" layout-fill layout="column" layout-align="center center">
+		  		<a ng-href="{{orga.link}}" target="_blank" layout="column" layout-align="center center" style="min-height: 60px">
 			  		<img ng-src="{{orga.logo}}" style="height: 70%; width: 70%">
 			  	</a>
 		  		<md-tooltip md-direction="left">{{orga.name}}</md-tooltip>
