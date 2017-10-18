@@ -40,6 +40,10 @@ angular.module('app.home', ['ngRoute'])
 			name: 'Les Décodeurs',
 			logo: 'res/decodeurs.svg',
 			link: 'http://lemonde.fr/les-decodeurs/'
+		},{
+			name: 'Google News Lab',
+			logo: 'res/googlenewslab.svg',
+			link: 'https://newslab.withgoogle.com/'
 		}
 	]
 	
