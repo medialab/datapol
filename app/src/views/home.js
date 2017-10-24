@@ -44,6 +44,10 @@ angular.module('app.home', ['ngRoute'])
 			name: 'Google News Lab',
 			logo: 'res/googlenewslab.svg',
 			link: 'https://newslab.withgoogle.com/'
+		},{
+			name: 'Matlo',
+			logo: 'res/matlo.svg',
+			link: 'https://www.matlo.com/'
 		}
 	]
 	
