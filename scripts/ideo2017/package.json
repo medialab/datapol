@@ -1,0 +1,27 @@
+{
+  "name": "ideo2017",
+  "version": "1.0.0",
+  "description": "Scraping IDEO2017",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/medialab/datapol.git"
+  },
+  "author": "yomguithereal <kropotkinepiotr@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/medialab/datapol/issues"
+  },
+  "homepage": "https://github.com/medialab/datapol#readme",
+  "dependencies": {
+    "artoo-js": "^0.4.0",
+    "async": "^2.6.0",
+    "cheerio": "^1.0.0-rc.2",
+    "mkdirp": "^0.5.1",
+    "mnemonist": "^0.17.0",
+    "request": "^2.83.0"
+  }
+}
