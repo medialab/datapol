@@ -69,7 +69,6 @@ with open('./profiles.csv', 'w') as f:
         points = sorted(points)
 
         current_start = None
-        current_date = None
         current_description = None
 
         for date, description in points:
@@ -84,7 +83,6 @@ with open('./profiles.csv', 'w') as f:
                         'profile': current_description
                     })
 
-                current_date = date
                 current_start = date
                 current_description = description
 
@@ -93,6 +91,6 @@ with open('./profiles.csv', 'w') as f:
             writer.writerow({
                 'depute': depute,
                 'start': current_start,
-                'end': current_date,
+                'end': '',
                 'profile': current_description
             })
