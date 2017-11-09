@@ -19,7 +19,7 @@ for i, row in df.iterrows():
     DEPUTES.add(row['twitter'])
 
 # 2) We need to iterate over the tweets to build our file
-lines = int(str(check_output(['wc', '-l', './tweets.csv'])).split(' ')[1])
+lines = int(str(check_output(['wc', '-l', './tweets.csv'])).split(' ')[1]) - 1
 max_value = math.ceil(lines / CHUNK_SIZE)
 
 bar = ProgressBar(max_value=max_value)
