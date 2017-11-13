@@ -10,16 +10,35 @@ from subprocess import check_output
 # -----------------------------------------------------------------------------
 # Edit variables below to tweak script behavior.
 # -----------------------------------------------------------------------------
+
+# Path to the tweets CSV file
 TWEETS_PATH = './tweets.csv'
+
+# Path to the categorised urls CSV file
 URLS_PATH = './decodex.csv'
+
+# Path to the output CSV file
 OUTPUT_PATH = './tagged-tweets.csv'
+
+# Name of the column containing the url
 URL_COLUMN = 'attr_home'
+
+# Name of the columns containing category information
 CATEGORIES_COLUMNS = {
     'Fiabilité et orientation': 'fiability'
 }
+
+# Name of the column containing the list of a tweet's links
 LINKS_COLUMN = 'links'
+
+# Name of the value given to untagged links in a category
 UNTAGGED_VALUE = 'untagged'
-LIMIT = 100000
+
+# Max number of rows of CSV file to process, useful for debugging
+LIMIT = None
+
+# Should the script avoid to report tweets without links?
+COMPACT = False
 
 # SCRIPT
 # -----------------------------------------------------------------------------
@@ -127,7 +146,9 @@ with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
         i += 1
 
         if 'links' not in row or not row['links']:
-            writer.writerow(row)
+
+            if not COMPACT:
+                writer.writerow(row)
 
             if LIMIT and i == LIMIT:
                 break
@@ -157,9 +178,11 @@ with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
 print('\n\nStats:')
 
 for column, values in stats.items():
-    print('  Column: ' + column)
+    print('  Column: "%s"' % column)
 
-    for value, count in values.items():
+    sorted_values = sorted(values.items(), key=lambda item: (item[1], item[0]), reverse=True)
+
+    for value, count in sorted_values:
         print('    %s - %i' % (value, count))
 
 print('')

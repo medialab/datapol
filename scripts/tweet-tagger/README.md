@@ -14,8 +14,10 @@ pip install -r requirements.txt
 
 ## Usage
 
-TODO...
+Just run the following command:
 
 ```
 ./tag.py
 ```
+
+To change parameters, see variables at the beginning of the script.
