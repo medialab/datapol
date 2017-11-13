@@ -2,7 +2,7 @@
 import csv
 import pandas as pd
 from urllib.parse import urlparse
-from collections import defaultdict
+from collections import defaultdict, Counter
 from progressbar import ProgressBar
 from subprocess import check_output
 
@@ -19,6 +19,7 @@ CATEGORIES_COLUMNS = {
 }
 LINKS_COLUMN = 'links'
 UNTAGGED_VALUE = 'untagged'
+LIMIT = 100000
 
 # SCRIPT
 # -----------------------------------------------------------------------------
@@ -109,9 +110,13 @@ for url in URLS:
 # 3) Streaming & tagging the tweets file
 print('Streaming & tagging tweets...')
 lines = int(str(check_output(['wc', '-l', TWEETS_PATH])).split(' ')[1]) - 1
-bar = ProgressBar(max_value=lines)
+bar = ProgressBar(max_value=LIMIT if LIMIT else lines)
+
+stats = defaultdict(Counter)
 
 with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
+    i = 0
+
     reader = csv.DictReader(tf)
 
     output_fieldnames = reader.fieldnames + list(CATEGORIES_COLUMNS.values())
@@ -119,9 +124,14 @@ with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
     writer.writeheader()
 
     for row in bar(reader):
+        i += 1
 
         if 'links' not in row or not row['links']:
             writer.writerow(row)
+
+            if LIMIT and i == LIMIT:
+                break
+
             continue
 
         links = row['links'].split('|')
@@ -132,9 +142,24 @@ with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
 
         for data in links_data:
             for category in CATEGORIES_COLUMNS:
-                categories[category].append(data.get(category, UNTAGGED_VALUE))
+                value = data.get(category, UNTAGGED_VALUE)
+                categories[category].append(value)
+                stats[category][value] += 1
 
         for source_column, values in categories.items():
             row[CATEGORIES_COLUMNS[source_column]] = '|'.join(values)
 
         writer.writerow(dict(row))
+
+        if LIMIT and i == LIMIT:
+            break
+
+print('\n\nStats:')
+
+for column, values in stats.items():
+    print('  Column: ' + column)
+
+    for value, count in values.items():
+        print('    %s - %i' % (value, count))
+
+print('')
