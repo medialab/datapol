@@ -18,6 +18,7 @@ CATEGORIES_COLUMNS = {
     'Fiabilité et orientation': 'fiability'
 }
 LINKS_COLUMN = 'links'
+UNTAGGED_VALUE = 'untagged'
 
 # SCRIPT
 # -----------------------------------------------------------------------------
@@ -125,13 +126,13 @@ with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
 
         links = row['links'].split('|')
         links_data = (trie.longest(link) for link in links)
-        links_data = [data for data in links_data if data]
+        links_data = [data if data else {} for data in links_data]
 
         categories = defaultdict(list)
 
         for data in links_data:
-            for category, value in data.items():
-                categories[category].append(value)
+            for category in CATEGORIES_COLUMNS:
+                categories[category].append(data.get(category, UNTAGGED_VALUE))
 
         for source_column, values in categories.items():
             row[CATEGORIES_COLUMNS[source_column]] = '|'.join(values)
