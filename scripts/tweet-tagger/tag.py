@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
+import csv
 import pandas as pd
 from urllib.parse import urlparse
 from collections import defaultdict
 from progressbar import ProgressBar
+from subprocess import check_output
 
 # PARAMETERS
 # -----------------------------------------------------------------------------
@@ -15,6 +17,7 @@ URL_COLUMN = 'attr_home'
 CATEGORIES_COLUMNS = {
     'Fiabilité et orientation': 'fiability'
 }
+LINKS_COLUMN = 'links'
 
 # SCRIPT
 # -----------------------------------------------------------------------------
@@ -96,7 +99,41 @@ for i, row in df.iterrows():
         URLS[row[URL_COLUMN]][column] = row[column]
 
 # 2) We need to build the LRU Trie
+print('Building LRU Trie...')
 trie = LRUTrie(URLS)
 
 for url in URLS:
     trie.add(url)
+
+# 3) Streaming & tagging the tweets file
+print('Streaming & tagging tweets...')
+lines = int(str(check_output(['wc', '-l', TWEETS_PATH])).split(' ')[1]) - 1
+bar = ProgressBar(max_value=lines)
+
+with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
+    reader = csv.DictReader(tf)
+
+    output_fieldnames = reader.fieldnames + list(CATEGORIES_COLUMNS.values())
+    writer = csv.DictWriter(of, fieldnames=output_fieldnames)
+    writer.writeheader()
+
+    for row in bar(reader):
+
+        if 'links' not in row or not row['links']:
+            writer.writerow(row)
+            continue
+
+        links = row['links'].split('|')
+        links_data = (trie.longest(link) for link in links)
+        links_data = [data for data in links_data if data]
+
+        categories = defaultdict(list)
+
+        for data in links_data:
+            for category, value in data.items():
+                categories[category].append(value)
+
+        for source_column, values in categories.items():
+            row[CATEGORIES_COLUMNS[source_column]] = '|'.join(values)
+
+        writer.writerow(dict(row))
