@@ -15,17 +15,17 @@ from subprocess import check_output
 TWEETS_PATH = './tweets.csv'
 
 # Path to the categorised urls CSV file
-URLS_PATH = './decodex.csv'
+URLS_PATH = './hoaxes.csv'
 
 # Path to the output CSV file
 OUTPUT_PATH = './tagged-tweets.csv'
 
 # Name of the column containing the url
-URL_COLUMN = 'attr_home'
+URL_COLUMN = 'URL'
 
 # Name of the columns containing category information
 CATEGORIES_COLUMNS = {
-    'Fiabilité et orientation': 'fiability'
+    'id_fake_news': 'id_fake_news'
 }
 
 # Name of the column containing the list of a tweet's links
@@ -38,7 +38,7 @@ UNTAGGED_VALUE = 'untagged'
 LIMIT = None
 
 # Should the script avoid to report tweets without links?
-COMPACT = False
+COMPACT = True
 
 # SCRIPT
 # -----------------------------------------------------------------------------
@@ -112,7 +112,7 @@ URLS = defaultdict(dict)
 
 # 1) We need to read the url file to build our URLS index
 print('Building URL categories index...')
-df = pd.read_csv(URLS_PATH, engine='c', usecols=[URL_COLUMN] + list(CATEGORIES_COLUMNS.keys()))
+df = pd.read_csv(URLS_PATH, engine='c', dtype=str, usecols=[URL_COLUMN] + list(CATEGORIES_COLUMNS.keys()))
 
 for i, row in df.iterrows():
 
