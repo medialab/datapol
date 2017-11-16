@@ -16,7 +16,7 @@ angular.module('app.home', ['ngRoute'])
 	$routeParams
 ) {
 	$scope.organisateurs = [
-		{
+		/*{
 			name: 'médialab de Sciences Po',
 			logo: 'res/medialab.svg',
 			link: 'http://www.medialab.sciences-po.fr'
@@ -28,6 +28,14 @@ angular.module('app.home', ['ngRoute'])
 			name: 'Ecole de Jouralisme de Sciences Po',
 			logo: 'res/ecolejournalisme.svg',
 			link: 'http://www.journalisme.sciences-po.fr/'
+		},{
+			name: 'Bibliothèque de Sciences Po',
+			logo: 'res/spbib.svg',
+			link: 'http://bibliotheque.sciences-po.fr'
+		},*/{
+			name: 'Sciences Po',
+			logo: 'res/sciencespo.svg',
+			link: 'https://sciences-po.fr/'
 		},{
 			name: 'Institut des Systèmes Complexes',
 			logo: 'res/ISCPIF.svg',
