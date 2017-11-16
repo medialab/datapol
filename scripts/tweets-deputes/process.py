@@ -10,7 +10,7 @@ from subprocess import check_output
 # Constants
 CHUNK_SIZE = 100
 DEPUTES = set()
-PROFILES = defaultdict(defaultdict(lambda: datetime.max))
+PROFILES = defaultdict(lambda: defaultdict(lambda: datetime.max))
 
 # 1) We need to build the set of deputes' twitter accounts
 df = pd.read_csv('./deputes.csv', engine='c', usecols=['twitter'])
