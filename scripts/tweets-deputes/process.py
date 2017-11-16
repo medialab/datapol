@@ -4,7 +4,7 @@ import csv
 import math
 from datetime import datetime
 from progressbar import ProgressBar
-from collections import defaultdict, namedtuple
+from collections import defaultdict
 from subprocess import check_output
 
 # Constants
