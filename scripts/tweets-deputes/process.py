@@ -10,7 +10,7 @@ from subprocess import check_output
 # Constants
 CHUNK_SIZE = 100
 DEPUTES = set()
-PROFILES = defaultdict(lambda: defaultdict(set))
+PROFILES = defaultdict(lambda: defaultdict(lambda: datetime.max))
 
 # 1) We need to build the set of deputes' twitter accounts
 df = pd.read_csv('./deputes.csv', engine='c', usecols=['twitter'])
@@ -52,7 +52,7 @@ for chunk in bar(reader):
 
         description = row['from_user_description']
         date = datetime.fromtimestamp(row['time'])
-        PROFILES[row['from_user_name']][description].add(date)
+        PROFILES[row['from_user_name']][description] = min(PROFILES[row['from_user_name']][description], date)
 
 # 3) Dumping the results
 with open('./profiles.csv', 'w') as f:
@@ -62,9 +62,8 @@ with open('./profiles.csv', 'w') as f:
     for depute, descriptions in PROFILES.items():
         points = []
 
-        for description, dates in descriptions.items():
-            for date in dates:
-                points.append((date, description))
+        for description, date in descriptions.items():
+            points.append((date, description))
 
         points = sorted(points)
 

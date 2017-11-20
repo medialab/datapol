@@ -60,6 +60,10 @@ angular.module('app.home', ['ngRoute'])
 			name: 'Matlo',
 			logo: 'res/matlo.svg',
 			link: 'https://www.matlo.com/'
+		},{
+			name: 'INA',
+			logo: 'res/INA.svg',
+			link: 'http://www.ina.fr/'
 		}
 	]
 	
