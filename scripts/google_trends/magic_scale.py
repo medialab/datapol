@@ -1,3 +1,6 @@
+import math
+from statistics import mean
+
 MAGIC_WORDS = [
     'chat',
     'lapin',
@@ -30,3 +33,18 @@ def convert(from_unit, value):
         i += 1
 
     return value
+
+def find_precision_by_mean(precision_series, keyword_series):
+    i = 0
+    l = len(MAGIC_WORDS)
+    p_mu = math.inf
+    k_mu = -math.inf
+    precision = MAGIC_WORDS[0]
+
+    while p_mu > k_mu and i < l:
+        p_mu = mean(precision_series[i])
+        k_mu = mean(keyword_series[i])
+        precision = MAGIC_WORDS[i]
+        i += 1
+
+    return precision
