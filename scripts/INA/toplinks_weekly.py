@@ -1,9 +1,12 @@
 import requests, json, datetime, sys
 
+from config import SERVER_URL
+
 
 def dowload_from_api(args):
     print(json.dumps(args, indent=1))
-    url = "http://195.221.139.21/twitter.dlweb/ppc/ws/dashboard"
+    url = "%s/twitter.dlweb/ppc/ws/dashboard" % SERVER_URL
+
     res = requests.post(url, data=json.dumps(args))
     return res.json()
 
