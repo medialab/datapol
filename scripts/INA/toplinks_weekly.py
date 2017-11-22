@@ -6,7 +6,7 @@ from config import SERVER_URL
 def dowload_from_api(args):
     print(json.dumps(args, indent=1))
     url = "%s/twitter.dlweb/ppc/ws/dashboard" % SERVER_URL
-
+#    print(url)
     res = requests.post(url, data=json.dumps(args))
     return res.json()
 
@@ -15,8 +15,8 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         sys.exit('USAGE : '+sys.argv[0]+' [destJSONtoplinksFilename]')
     args = {"query":"","from_date":"","to_date":"","hashtags":"","mentions":"","users":"","lang":"","retweet":"-1","quote":"-1","index":"twitter_search_lab02"}
-    start_date = datetime.date(2017, 1, 1)
-    end_date = datetime.date(2017, 7, 1)
+    start_date = datetime.datetime(2017, 1, 1)
+    end_date = datetime.datetime(2017, 7, 1)
     increment = datetime.timedelta(days=7)
     all_top_links = []
     while start_date < end_date:
@@ -27,6 +27,8 @@ if __name__ == '__main__':
         args["dashboard_type"]="urls"
         args['from_date'] = start_date_string
         args['to_date'] = next_date_string
+        args['date_start'] = int(start_date.timestamp()*1000)
+        args['date_stop'] = int(next_date.timestamp()*1000)
 
         result_user = dowload_from_api(args)
         all_top_links.append({'date':start_date_string, 'list':result_user})
