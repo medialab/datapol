@@ -1,87 +1,89 @@
 <div layout="column">
+	<div>
+		<md-grid-list
+	    md-cols="2"
+	    md-cols-gt-sm="3"
+	    md-cols-gt-md="6"
+	    md-row-height="1:1"
+	    md-gutter="0px"
+		>
 
-	<md-grid-list
-    md-cols="2"
-    md-cols-gt-sm="3"
-    md-cols-gt-md="6"
-    md-row-height="1:1"
-    md-gutter="0px"
-	>
+			<!-- Hero tile -->
+		  <md-grid-tile
+		    md-rowspan="1"
+		    md-rowspan-gt-md="2"
+		    md-colspan="2"
+		    md-colspan-gt-sm="1"
+		    md-colspan-gt-md="2"
+		    md-colors="{
+		    	background: 'default-accent'
+			  }"
+		   >
+		    <img src="res/datapol.svg" style="height: 80%; width: 80%">
+		  </md-grid-tile>
 
-		<!-- Hero tile -->
-	  <md-grid-tile
-	    md-rowspan="1"
-	    md-rowspan-gt-md="2"
-	    md-colspan="2"
-	    md-colspan-gt-sm="1"
-	    md-colspan-gt-md="2"
-	    md-colors="{
-	    	background: 'default-accent'
-		  }"
-	   >
-	    <img src="res/datapol.svg" style="height: 80%; width: 80%">
-	  </md-grid-tile>
-
-	  <!-- Pitch -->
-	  <md-grid-tile
-	    md-rowspan="1"
-	    md-rowspan-xs="2"
-	    md-colspan="1"
-	    md-colspan-gt-md="2"
-	    md-colors="{
-	    	'background': 'default-primary-700',
-	    	'color': 'default-accent-200'
-		  }"
-	  >
-	   	<div style="padding: 16px; font-size: 1.6em; font-weight: 100">
-		  	<em>
-		  		Explorer les campagnes électorales de 2017 par les données numériques, des bulles de filtre aux nouvelles pratiques de mobilisation politique.
-		  	</em>
-		  </div>
-	  </md-grid-tile>
-
-	  <!-- Organisateurs -->
-	  <md-grid-tile
-	    md-rowspan="2"
-	    md-rowspan-xs="4"
-	    md-colspan="1"
-	    md-colspan-gt-md="2"
-	  >
-	  	<div style="padding: 8px" layout="row" layout-wrap>
-		  	<div flex="100" flex-gt-md="50" ng-repeat="orga in organisateurs" layout-fill layout="column" layout-align="center center">
-		  		<a ng-href="{{orga.link}}" target="_blank" layout="column" layout-align="center center" style="min-height: 60px">
-			  		<img ng-src="{{orga.logo}}" style="height: 55%; width: 55%">
-			  	</a>
-		  		<md-tooltip md-direction="left">{{orga.name}}</md-tooltip>
-		  	</div>
-		  </div>
-	  </md-grid-tile>
-
-	  <!-- Inscription -->
-	  <md-grid-tile
-	    md-rowspan="1"
-	    md-rowspan-xs="2"
-	    md-colspan="1"
-	    md-colspan-gt-sm="2"
-	    md-colors="{
-	    	background: 'default-primary-100'
-		  }"
-	  >
-	  	<div layout="column" layout-align="center center" layout-fill>
-	   		<p class="md-title" style="padding: 0px 32px; text-align: center">
-	   			Venez découvrir les résultats du data sprint le Samedi 2 décembre après-midi
-	   		</p>
-		   	<div style="padding: 8px; text-align: center">
-			  	<md-button class="md-accent md-raised" ng-href="https://www.sciencespo.fr/evenements/inscription/inscription.php?code=bb288Y&id=6260">
-			  		<md-icon>person_add</md-icon>
-			  		Je m'inscris
-			  	</md-button>
+		  <!-- Pitch -->
+		  <md-grid-tile
+		    md-rowspan="1"
+		    md-rowspan-xs="2"
+		    md-colspan="1"
+		    md-colspan-gt-md="2"
+		    md-colors="{
+		    	'background': 'default-primary-700',
+		    	'color': 'default-accent-200'
+			  }"
+		  >
+		   	<div style="padding: 16px; font-size: 1.6em; font-weight: 100">
+			  	<em>
+			  		Explorer les campagnes électorales de 2017 par les données numériques, des bulles de filtre aux nouvelles pratiques de mobilisation politique.
+			  	</em>
 			  </div>
-			</div>
-	  </md-grid-tile>
+		  </md-grid-tile>
 
-	</md-grid-list>
+		  <!-- Organisateurs -->
+		  <md-grid-tile
+		    md-rowspan="2"
+		    md-rowspan-xs="4"
+		    md-colspan="1"
+		    md-colspan-gt-md="2"
 
+		  >
+		  	<div style="padding: 8px" layout="row" layout-wrap>
+			  	<div flex="100" flex-gt-md="50" ng-repeat="orga in organisateurs" layout-fill layout="column" layout-align="center center">
+			  		<a ng-href="{{orga.link}}" target="_blank" layout="column" layout-align="center center" style="min-height: 60px">
+				  		<img ng-src="{{orga.logo}}" style="height: 55%; width: 55%">
+				  	</a>
+			  		<md-tooltip md-direction="left">{{orga.name}}</md-tooltip>
+			  	</div>
+			  </div>
+		  </md-grid-tile>
+
+		  <!-- Inscription -->
+		  <md-grid-tile
+		    md-rowspan="1"
+		    md-rowspan-xs="2"
+		    md-colspan="1"
+		    md-colspan-gt-sm="2"
+		    md-colors="{
+		    	background: 'default-primary-100'
+			  }"
+		  >
+		  	<div layout="column" layout-align="center center" layout-fill>
+		   		<p class="md-title" style="padding: 0px 32px; text-align: center">
+		   			Venez découvrir les résultats du data sprint le Samedi 2 décembre après-midi
+		   		</p>
+			   	<div style="padding: 8px; text-align: center">
+				  	<md-button class="md-accent md-raised" ng-href="https://www.sciencespo.fr/evenements/inscription/inscription.php?code=bb288Y&id=6260">
+				  		<md-icon>person_add</md-icon>
+				  		Je m'inscris
+				  	</md-button>
+				  </div>
+				</div>
+		  </md-grid-tile>
+
+		</md-grid-list>
+	<div>
+		
 	<div layout="row">
 		<div
 			flex="25"
@@ -138,6 +140,7 @@
 				<li>Catégories du Décodex du Monde (crawl)</li>
 				<li>Panel Dynamob, dynamiques de mobilisation <em>(DIME SHS - Elipss)</em></li>
 				<li>Archive Twitter INA Elections 2017 <em>(INA)</em></li>
+				<li>Données Twitter et Facebook sur FN/Fachosphère <em>(Listic)</em></li>
 			</ul>
 		</div>
 
