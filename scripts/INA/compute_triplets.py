@@ -10,7 +10,9 @@ START_DATE = datetime.datetime(2017, 1, 1)
 END_DATE = datetime.datetime(2017, 7, 1)
 SEARCH_URL = '%s/twitter.dlweb/ppc/ws/search' % SERVER_URL
 BULK_SIZE = 1000
+SKIP = 0
 
+# Output formats
 TRIPLERS_FIELDNAMES = [
     'account',
     'url',
@@ -104,6 +106,9 @@ accounts_writer.writeheader()
 # Iterating over the mined URLs
 for i, url_doc in enumerate(url_reader):
     url = url_doc['URL']
+
+    if i < SKIP:
+        continue
 
     print('(%i) Processing & polling "%s"' % (i + 1, url))
 
