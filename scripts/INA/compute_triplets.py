@@ -6,10 +6,38 @@ import requests
 from config import SERVER_URL
 
 # Constants
-START_DATE = datetime.date(2017, 1, 1)
-END_DATE = datetime.date(2017, 7, 1)
+START_DATE = datetime.datetime(2017, 1, 1)
+END_DATE = datetime.datetime(2017, 7, 1)
 SEARCH_URL = '%s/twitter.dlweb/ppc/ws/search' % SERVER_URL
 BULK_SIZE = 1000
+
+TRIPLERS_FIELDNAMES = [
+    'account',
+    'url',
+    'tweet',
+    'time',
+    'retweeted',
+    'quoted'
+]
+
+ACCOUNTS_FIELDNAMES = [
+    'id',
+    'screen_name',
+    'name',
+    'lang',
+    'description',
+    'created_at',
+    'url',
+    'location',
+    'favourites_count',
+    'friends_count',
+    'listed_count',
+    'followers_count',
+    'statuses_count'
+]
+
+# State
+ACCOUNTS = set()
 
 # Helpers
 def get_tweets(url, skip=0):
@@ -42,29 +70,36 @@ def extract_row(url, data):
         'tweet': data['id'],
         'time': datetime.datetime.fromtimestamp(int(data['created_at']) / 1000).isoformat(),
         'retweeted': 'x' if data['retweeted'] else '',
-        'quote': 'x' if data['quote'] else ''
+        'quoted': 'x' if data['quoted'] else ''
     }
+
+def extract_account(data):
+    account = {}
+
+    for prop in ACCOUNTS_FIELDNAMES:
+        if 'created_at' in data and prop == 'created_at':
+            account['created_at'] = datetime.datetime.fromtimestamp(int(data['created_at']) / 1000).isoformat()
+        elif prop in data:
+            account[prop] = data[prop]
+
+    return account
 
 def rows_iter(url, data):
     for hit in data['hits']:
-        yield extract_row(url, hit['_source'])
+        yield extract_account(hit['_source']['user']), extract_row(url, hit['_source'])
 
 # Opening buffers
 url_file = open('./toplinks.csv', 'r')
 triplets_file = open('./triplets.csv', 'w')
-triplets_fieldnames = [
-    'account',
-    'url',
-    'tweet',
-    'time',
-    'retweeted',
-    'quote'
-]
+accounts_file = open('./accounts.csv', 'w')
 
 url_reader = csv.DictReader(url_file)
 
-writer = csv.DictWriter(triplets_file, fieldnames=triplets_fieldnames)
-writer.writeheader()
+triplets_writer = csv.DictWriter(triplets_file, fieldnames=TRIPLERS_FIELDNAMES)
+triplets_writer.writeheader()
+
+accounts_writer = csv.DictWriter(accounts_file, fieldnames=ACCOUNTS_FIELDNAMES)
+accounts_writer.writeheader()
 
 # Iterating over the mined URLs
 for i, url_doc in enumerate(url_reader):
@@ -87,19 +122,28 @@ for i, url_doc in enumerate(url_reader):
     ))
 
     # Dumping first page
-    for row in rows_iter(url, data):
-        writer.writerow(row)
+    for account, row in rows_iter(url, data):
+        triplets_writer.writerow(row)
+
+        if account['screen_name'] not in ACCOUNTS:
+            accounts_writer.writerow(account)
+            ACCOUNTS.add(account['screen_name'])
 
     # Processing the rest
     for j in range(1, queries_nb + 1):
         skip = j * BULK_SIZE
         print('  (%i) One more query...' % j)
 
-        for row in rows_iter(url, get_tweets(url, skip=skip)):
-            writer.writerow(row)
+        for account, row in rows_iter(url, get_tweets(url, skip=skip)):
+            triplets_writer.writerow(row)
+
+            if account['screen_name'] not in ACCOUNTS:
+                accounts_writer.writerow(account)
+                ACCOUNTS.add(account['screen_name'])
 
     print()
 
 # Tearing down
 url_file.close()
-output_file.close()
+triplets_file.close()
+accounts_file.close()
