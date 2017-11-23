@@ -3,3 +3,4 @@
 gt-batch
 __pycache__
 *.pyx
+config.py
