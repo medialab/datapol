@@ -51,9 +51,16 @@
 		  	<div style="padding: 8px" layout="row" layout-wrap>
 			  	<div flex="100" flex-gt-md="50" ng-repeat="orga in organisateurs" layout-fill layout="column" layout-align="center center">
 			  		<a ng-href="{{orga.link}}" target="_blank" layout="column" layout-align="center center" style="min-height: 60px">
-				  		<img ng-src="{{orga.logo}}" style="height: 55%; width: 55%">
+				  		<img ng-src="{{orga.logo}}" style="height: 50%; width: 50%">
 				  	</a>
 			  		<md-tooltip md-direction="left">{{orga.name}}</md-tooltip>
+			  	</div>
+			  	<div flex="100" layout-fill layout="column" layout-align="center center">
+			  		<br>Avec le soutien du<br>
+			  		<a ng-href="https://newslab.withgoogle.com/" target="_blank" layout="column" layout-align="center center" style="min-height: 60px">
+				  		<img ng-src="res/googlenewslab.svg" style="height: 50%; width: 50%">
+				  	</a>
+			  		<md-tooltip md-direction="left">Google News Lab</md-tooltip>
 			  	</div>
 			  </div>
 		  </md-grid-tile>
@@ -464,6 +471,16 @@
               Outils médialab
             </h3>
             <p>Les autres “médialab tools”</p>
+          </div>
+        </md-list-item>
+
+        <md-list-item class="md-2-line" ng-href="https://allgo.inria.fr/tags/linkmedia">
+        	<md-icon class="md-avatar-icon">link</md-icon>
+        	<div class="md-list-item-text">
+            <h3>
+              Outils AllGo (termex, negdetect, otis/hitost, nero…)
+            </h3>
+            <p>Web services orientés fouille/analyse de texte, audio/vidéo, et plus.</p>
           </div>
         </md-list-item>
 
