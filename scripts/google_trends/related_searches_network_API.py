@@ -9,7 +9,8 @@ def main():
                   discoveryServiceUrl=DISCOVERY_URL)
 
   # Single Graph Example, no restrictions
-  graph = service.getRisingQueries(term='apple', restrictions_startDate='2017-01', restrictions_endDate='2017-06')
+#  graph = service.getRisingQueries(term='macron', restrictions_geo='FR', restrictions_startDate='2017-01', restrictions_endDate='2017-06')
+  graph = service.getGraph(terms=['osons causer', 'cyclohexane'], restrictions_geo='FR', restrictions_startDate='2017-01', restrictions_endDate='2017-06')
   response = graph.execute()
   pprint.pprint(response)
 
