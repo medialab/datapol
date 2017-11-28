@@ -45,6 +45,10 @@ angular.module('app.home', ['ngRoute'])
 			logo: 'res/pdl.svg',
 			link: 'http://publicdatalab.org/'
 		},{
+			name: 'INA',
+			logo: 'res/INA.svg',
+			link: 'http://www.ina.fr/'
+		},{
 			name: 'Linkfluence',
 			logo: 'res/linkfluence.svg',
 			link: 'https://linkfluence.com/'
@@ -52,18 +56,14 @@ angular.module('app.home', ['ngRoute'])
 			name: 'Les Décodeurs',
 			logo: 'res/decodeurs.svg',
 			link: 'http://lemonde.fr/les-decodeurs/'
-		},{
+		}/*,{
 			name: 'Google News Lab',
 			logo: 'res/googlenewslab.svg',
 			link: 'https://newslab.withgoogle.com/'
-		},{
+		}*/,{
 			name: 'Matlo',
 			logo: 'res/matlo.svg',
 			link: 'https://www.matlo.com/'
-		},{
-			name: 'INA',
-			logo: 'res/INA.svg',
-			link: 'http://www.ina.fr/'
 		}
 	]
 	

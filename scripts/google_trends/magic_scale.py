@@ -47,4 +47,16 @@ def find_precision_by_mean(precision_series, keyword_series):
         precision = MAGIC_WORDS[i]
         i += 1
 
+    # Previous precision MAY be better if mean ratio is lower
+
+    if k_mu > 0:# no need to make a DivideByZero error if the keyword is lower than lowest unit
+        prev_k_mu = mean(keyword_series[i-2])
+        prev_p_mu = mean(precision_series[i-2])
+
+        previous_ratio = max(prev_p_mu, prev_k_mu) / min(prev_p_mu, prev_k_mu)
+        current_ratio = max(p_mu, k_mu) / min(p_mu, k_mu)
+
+        if previous_ratio < current_ratio:
+            precision = MAGIC_WORDS[i-2]
+
     return precision
