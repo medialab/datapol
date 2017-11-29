@@ -43,15 +43,18 @@ def find_precision_by_mean(precision_series, keyword_series):
     k_mu = -float('inf')
     precision = MAGIC_WORDS[0]
 
-    while p_mu > k_mu and i < l:
-        p_mu = mean(precision_series[i])
-        k_mu = mean(keyword_series[i])
-        precision = MAGIC_WORDS[i]
-        i += 1
+    try:
+        while p_mu > k_mu and i < l:
+            p_mu = mean(precision_series[i])
+            k_mu = mean(keyword_series[i])
+            precision = MAGIC_WORDS[i]
+            i += 1
+    except:
+        return None
 
     # Previous precision MAY be better if mean ratio is lower
 
-    if k_mu > 0:# no need to make a DivideByZero error if the keyword is lower than lowest unit
+    if k_mu > 0 and i > 1:# no need to make a DivideByZero error if the keyword is lower than lowest unit
         prev_k_mu = mean(keyword_series[i-2])
         prev_p_mu = mean(precision_series[i-2])
 
