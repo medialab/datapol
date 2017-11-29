@@ -5,6 +5,7 @@ MAGIC_WORDS = [
     'chat',
     'lapin',
     'renard',
+    'chenille',
     'vipère',
     'cyclohexane'
 ]
@@ -12,8 +13,8 @@ MAGIC_WORDS = [
 MAGIC_SCALE = [
     {'from': 'lapin', 'to': 'chat', 'ratio': 4.2105263157894735},
     {'from': 'renard', 'to': 'lapin', 'ratio': 2.7142857142857144},
-    {'from': 'chenille' , 'to': 'renard', 'ratio': 2.526315789473684}
-    {'from': 'vipère', 'to': 'chenille', 'ratio': 6}
+    {'from': 'chenille' , 'to': 'renard', 'ratio': 2.526315789473684},
+    {'from': 'vipère', 'to': 'chenille', 'ratio': 6},
     {'from': 'cyclohexane', 'to': 'vipère', 'ratio': 3.75}
 ]
 
