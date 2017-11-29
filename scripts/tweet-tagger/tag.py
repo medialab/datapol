@@ -48,6 +48,9 @@ LIMIT = None
 # Should the script avoid to report tweets without links?
 COMPACT = True
 
+# Should the script filter untagged lines?
+FILTER_UNTAGGED = False
+
 # SCRIPT
 # -----------------------------------------------------------------------------
 
@@ -218,6 +221,11 @@ with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
 
         links = row[LINKS_COLUMN].split('|')
         links_data = (trie.longest(link) for link in links)
+
+        # Filter untagged?
+        if FILTER_UNTAGGED and all(d is None for d in links_data):
+            continue
+
         links_data = [data if data else {} for data in links_data]
 
         categories = defaultdict(list)
