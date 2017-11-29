@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import re
 import csv
 import pandas as pd
 from urllib.parse import urlparse
@@ -12,24 +13,31 @@ from subprocess import check_output
 # -----------------------------------------------------------------------------
 
 # Path to the tweets CSV file
-TWEETS_PATH = './tweets.csv'
+TWEETS_PATH = './politoscope-sample.csv'
 
 # Path to the categorised urls CSV file
-URLS_PATH = './hoaxes.csv'
+URLS_PATH = './decodex.csv'
 
 # Path to the output CSV file
-OUTPUT_PATH = './tagged-tweets.csv'
+OUTPUT_PATH = './tagged-politoscope-sample.csv'
 
 # Name of the column containing the url
-URL_COLUMN = 'URL'
+URL_COLUMN = 'attr_home'
 
 # Name of the columns containing category information
 CATEGORIES_COLUMNS = {
-    'id_fake_news': 'id_fake_news'
+    'Id': 'decodex_id',
+    'attr_home': 'decodex_source',
+    'Fiabilité': 'decodex_fiability',
+    'Catégorie': 'decodex_category',
+    'Orientation contenu': 'decodex_orientation'
 }
 
 # Name of the column containing the list of a tweet's links
-LINKS_COLUMN = 'links'
+LINKS_COLUMN = 'url'
+
+# Csv delimiter of the tweet's file
+DELIMITER = ' '
 
 # Name of the value given to untagged links in a category
 UNTAGGED_VALUE = 'untagged'
@@ -121,6 +129,16 @@ class LRUTrie(object):
 
         if variation:
 
+            node = self.root
+
+            for stem in variation:
+                if stem not in node:
+                    node[stem] = {}
+
+                node = node[stem]
+
+            node[self.leaf] = url
+
     def longest(self, url):
         lru = url_to_lru(url) + [None]
         node = self.root
@@ -168,7 +186,10 @@ for url in URLS:
 
 # 3) Streaming & tagging the tweets file
 print('Streaming & tagging tweets...')
-lines = int(str(check_output(['wc', '-l', TWEETS_PATH])).split(' ')[1]) - 1
+
+SPLITTER = re.compile('\\s+')
+
+lines = int(SPLITTER.split(check_output(['wc', '-l', TWEETS_PATH]).decode('utf-8'))[1]) - 1
 bar = ProgressBar(max_value=LIMIT if LIMIT else lines)
 
 stats = defaultdict(Counter)
@@ -176,16 +197,16 @@ stats = defaultdict(Counter)
 with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
     i = 0
 
-    reader = csv.DictReader(tf)
+    reader = csv.DictReader(tf, delimiter=DELIMITER)
 
     output_fieldnames = reader.fieldnames + list(CATEGORIES_COLUMNS.values())
-    writer = csv.DictWriter(of, fieldnames=output_fieldnames)
+    writer = csv.DictWriter(of, fieldnames=output_fieldnames, delimiter=DELIMITER)
     writer.writeheader()
 
     for row in bar(reader):
         i += 1
 
-        if 'links' not in row or not row['links']:
+        if LINKS_COLUMN not in row or not row[LINKS_COLUMN]:
 
             if not COMPACT:
                 writer.writerow(row)
@@ -195,7 +216,7 @@ with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
 
             continue
 
-        links = row['links'].split('|')
+        links = row[LINKS_COLUMN].split('|')
         links_data = (trie.longest(link) for link in links)
         links_data = [data if data else {} for data in links_data]
 
