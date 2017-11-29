@@ -55,10 +55,11 @@ def find_precision_by_mean(precision_series, keyword_series):
         prev_k_mu = mean(keyword_series[i-2])
         prev_p_mu = mean(precision_series[i-2])
 
-        previous_ratio = max(prev_p_mu, prev_k_mu) / min(prev_p_mu, prev_k_mu)
-        current_ratio = max(p_mu, k_mu) / min(p_mu, k_mu)
+        if prev_k_mu > 0 and prev_p_mu > 0:
+            previous_ratio = max(prev_p_mu, prev_k_mu) / min(prev_p_mu, prev_k_mu)
+            current_ratio = max(p_mu, k_mu) / min(p_mu, k_mu)
 
-        if previous_ratio < current_ratio:
-            precision = MAGIC_WORDS[i-2]
+            if previous_ratio < current_ratio:
+                precision = MAGIC_WORDS[i-2]
 
     return precision
