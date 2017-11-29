@@ -39,8 +39,8 @@ def convert(from_unit, value):
 def find_precision_by_mean(precision_series, keyword_series):
     i = 0
     l = len(MAGIC_WORDS)
-    p_mu = math.inf
-    k_mu = -math.inf
+    p_mu = float('inf')
+    k_mu = -float('inf')
     precision = MAGIC_WORDS[0]
 
     while p_mu > k_mu and i < l:
