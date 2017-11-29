@@ -67,7 +67,7 @@ if __name__ == '__main__':
             flat_precision_series.append(precision_series)
 
         best_precision = find_precision_by_mean(flat_precision_series, flat_keyword_series)
-        # print('Best precision for "%s" is "%s"' % (keyword, best_precision))
+        print('Best precision for "%s" is "%s"' % (keyword, best_precision))
         best_series = series[best_precision]
 
         for item in best_series:
