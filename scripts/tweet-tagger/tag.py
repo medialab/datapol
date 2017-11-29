@@ -43,7 +43,24 @@ COMPACT = True
 # SCRIPT
 # -----------------------------------------------------------------------------
 
+URL_BLACK_LIST = frozenset([
+    'http://instagram.com',
+    'http://plus.google.com',
+    'http://facebook.com',
+    'http://dailymotion.com',
+    'http://youtube.com',
+    'http://twitter.com',
+    'http://fr.wikipedia.org',
+    'http://wikihow.com'
+])
+
 # Helper classes & functions
+
+# Notes:
+#   1) We will drop the scheme. It's not relevant for us right now.
+#   2) Some urls are filtered for relevance (e.g. twitter.com)
+#   3) www variations needs to be taken into account
+#   4) We need to avoid the TLD
 def url_to_lru(url):
     parsed = urlparse(url)
     loc = ''
@@ -55,17 +72,30 @@ def url_to_lru(url):
         loc = parsed.netloc
 
     stems = [
-        's:' + parsed.scheme,
+        # 's:' + parsed.scheme,
         't:' + port
     ]
 
-    stems += ['h:' + x for x in reversed(loc.split('.'))]
+    stems += ['h:' + x for x in reversed(loc.split('.')[:-1])]
     stems += ['p:' + x for x in parsed.path.split('/')]
     stems += ['q:' + parsed.query, 'f:' + parsed.fragment]
 
     stems = [stem for stem in stems if len(stem) > 2]
 
     return stems
+
+def generate_www_variation(lru):
+    if 'h:www' in lru:
+        return [stem for stem in lru if stem != 'h:www']
+    else:
+        if len([stem for stem in lru if stem.startswith('h:')]) > 1:
+            return None
+
+        if lru[0].startswith('t:'):
+            return lru[:2] + ['h:www'] + lru[2:]
+        else:
+            return lru[:1] + ['h:www'] + lru[1:]
+
 
 class LRUTrie(object):
 
@@ -85,6 +115,11 @@ class LRUTrie(object):
             node = node[stem]
 
         node[self.leaf] = url
+
+        # Handling variation
+        variation = generate_www_variation(lru)
+
+        if variation:
 
     def longest(self, url):
         lru = url_to_lru(url) + [None]
@@ -117,6 +152,11 @@ df = pd.read_csv(URLS_PATH, engine='c', dtype=str, usecols=[URL_COLUMN] + list(C
 for i, row in df.iterrows():
 
     for column in CATEGORIES_COLUMNS.keys():
+
+        # Filtering some irrelevant urls
+        if row[URL_COLUMN] in URL_BLACK_LIST:
+            continue
+
         URLS[row[URL_COLUMN]][column] = row[column]
 
 # 2) We need to build the LRU Trie
