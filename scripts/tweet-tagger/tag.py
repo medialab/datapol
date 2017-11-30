@@ -13,13 +13,13 @@ from subprocess import check_output
 # -----------------------------------------------------------------------------
 
 # Path to the tweets CSV file
-TWEETS_PATH = './politoscope-sample.csv'
+TWEETS_PATH = './politoscope-urls.csv'
 
 # Path to the categorised urls CSV file
 URLS_PATH = './decodex.csv'
 
 # Path to the output CSV file
-OUTPUT_PATH = './tagged-politoscope-sample.csv'
+OUTPUT_PATH = './tagged-politoscope-urls.csv'
 
 # Name of the column containing the url
 URL_COLUMN = 'attr_home'
@@ -49,7 +49,7 @@ LIMIT = None
 COMPACT = True
 
 # Should the script filter untagged lines?
-FILTER_UNTAGGED = False
+FILTER_UNTAGGED = True
 
 # SCRIPT
 # -----------------------------------------------------------------------------

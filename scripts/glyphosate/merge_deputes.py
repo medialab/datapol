@@ -31,19 +31,19 @@ HEADERS_TO_ADD = [
 INDEX = {}
 
 for period in PERIODS:
-    source_filename = 'deputes_%s.csv' % period
-    supplementary_filename = 'nosdeputes_%s.csv' % period
+    source_filename = 'nosdeputes_%s.csv' % period
+    supplementary_filename = 'deputes_%s.csv' % period
     output_filename = 'deputes_%s_with_full_data.csv' % period
 
     with open(join(DATASET_PATH, source_filename), 'r') as source_file, \
          open(join(DATASET_PATH, supplementary_filename), 'r') as supplementary_file, \
          open(join(OUTPUT_PATH, output_filename), 'w') as output_file:
 
-        source_reader = csv.DictReader(source_file)
-        supplementary_reader = csv.DictReader(supplementary_file, delimiter=';')
+        source_reader = csv.DictReader(source_file, delimiter=';')
+        supplementary_reader = csv.DictReader(supplementary_file)
 
-        ouput_fieldnames = source_reader.fieldnames + []
-        output_writer = csv.DictWriter(output_file, fieldnames=ouput_fieldnames + HEADERS_TO_ADD)
+        ouput_fieldnames = source_reader.fieldnames + HEADERS_TO_ADD
+        output_writer = csv.DictWriter(output_file, fieldnames=ouput_fieldnames)
 
         output_writer.writeheader()
 
