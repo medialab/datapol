@@ -66,9 +66,17 @@ if __name__ == '__main__':
             flat_keyword_series.append(keyword_series)
             flat_precision_series.append(precision_series)
 
-        best_precision = find_precision_by_mean(flat_precision_series, flat_keyword_series)
-        # print('Best precision for "%s" is "%s"' % (keyword, best_precision))
-        best_series = series[best_precision]
+        try:
+            best_precision = find_precision_by_mean(flat_precision_series, flat_keyword_series)
+            if not best_precision:
+                print('Precision too bad for "%s", no usable data' % (keyword))
+                continue
+            print('Best precision for "%s" is "%s"' % (keyword, best_precision))
+            best_series = series[best_precision]
+        except Exception as e:
+            print("ERROR on", keyword)
+            raise e
+            exit(1)
 
         for item in best_series:
             writer.writerow({

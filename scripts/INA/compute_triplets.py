@@ -13,7 +13,7 @@ BULK_SIZE = 1000
 SKIP = 0
 
 # Output formats
-TRIPLERS_FIELDNAMES = [
+TRIPLETS_FIELDNAMES = [
     'account',
     'url',
     'tweet',
@@ -97,7 +97,7 @@ accounts_file = open('./accounts.csv', 'w')
 
 url_reader = csv.DictReader(url_file)
 
-triplets_writer = csv.DictWriter(triplets_file, fieldnames=TRIPLERS_FIELDNAMES)
+triplets_writer = csv.DictWriter(triplets_file, fieldnames=TRIPLETS_FIELDNAMES)
 triplets_writer.writeheader()
 
 accounts_writer = csv.DictWriter(accounts_file, fieldnames=ACCOUNTS_FIELDNAMES)
