@@ -1209,7 +1209,7 @@ div > .dezoome:hover {
                 html = "<div class=\"titre_tt\">" + circ + ((circ == 1) ? "<sup>re</sup>" : "<sup>e</sup>") + " circonscription " + cor[dep].article + cor[dep].nom + "</div>"
                 if (voix > 0) html += "<p>" + nom + " - Pourcentage de surface agricole par rapport à la surface totale : " + pourcent + "&nbsp;%</p>"
                 if (voixMDM > 0) html += "<p>" + nomMDM + " (Modem) : " + pourcentMDM + "&nbsp;% des voix</p>"
-            } else html = "<div class=\"titre_tt\">" + circ + ((circ == 1) ? "<sup>re</sup>" : "<sup>e</sup>") + " circonscription " + cor[dep].article + cor[dep].nom + "</div><div>Pas de candidat</div>"
+            } else html = "<div class=\"titre_tt\">" + circ + ((circ == 1) ? "<sup>re</sup>" : "<sup>e</sup>") + " circonscription " + cor[dep].article + cor[dep].nom + "</div><div>Pas de données</div>"
 
             return html
         },
