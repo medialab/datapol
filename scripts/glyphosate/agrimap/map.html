@@ -1002,11 +1002,16 @@ div > .dezoome:hover {
     /* Le maximum et le minimum */
     for (var i = 0; i < elus.length; i++) {
         f = elus[i]
+        tweettotal = f[1]
+        tweetgly = f[2]
         exp = f[3]
-        voix = f[5] + f[7]
+        voix = f[5]
         pourcent = (voix / exp) * 100
+        pourcenttweet = (tweetgly/tweettotal) * 100
         if (pourcent >= max) max = Math.ceil(pourcent)
         if (pourcent <= min) min = Math.floor(pourcent)
+        if (pourcenttweet >= max) max = Math.ceil(pourcenttweet)
+        if (pourcenttweet <= min) min = Math.floor(pourcenttweet)
     }
     var intervalleEM = ((max - min) / decoupage).toFixed(0)
     var echellecolEM = []
@@ -1204,10 +1209,11 @@ div > .dezoome:hover {
                 nomMDM = tableau[6]
                 voixMDM = tableau[7]
                 pourcent = String(((voix / exp) * 100).toFixed(2)).replace(".", ",")
+                pourcenttweet = String(((tweetgly / tweettotal) * 100).toFixed(2)).replace(".", ",")
                 pourcentMDM = String(((voixMDM / exp) * 100).toFixed(2)).replace(".", ",")
 
                 html = "<div class=\"titre_tt\">" + circ + ((circ == 1) ? "<sup>re</sup>" : "<sup>e</sup>") + " circonscription " + cor[dep].article + cor[dep].nom + "</div>"
-                if (voix > 0) html += "<p>" + nom + " - Pourcentage de surface agricole par rapport à la surface totale : " + pourcent + "&nbsp;%</p>"
+                if (voix > 0) html += "<p>" + nom + " - Pourcentage de surface agricole par rapport à la surface totale : " + pourcent + "&nbsp;%<br>Pourcentage de tweets sur le glyphosate par rapport à la somme totale de tweets : " + pourcenttweet + "&nbsp;%  </p>"
                 if (voixMDM > 0) html += "<p>" + nomMDM + " (Modem) : " + pourcentMDM + "&nbsp;% des voix</p>"
             } else html = "<div class=\"titre_tt\">" + circ + ((circ == 1) ? "<sup>re</sup>" : "<sup>e</sup>") + " circonscription " + cor[dep].article + cor[dep].nom + "</div><div>Pas de données</div>"
 
