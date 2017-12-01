@@ -13,43 +13,40 @@ from subprocess import check_output
 # -----------------------------------------------------------------------------
 
 # Path to the tweets CSV file
-TWEETS_PATH = './politoscope-urls.csv'
+TWEETS_PATH = './nodes distance v4.gexf.csv'
 
 # Path to the categorised urls CSV file
-URLS_PATH = './decodex.csv'
+URLS_PATH = './decodex-latest.csv'
 
 # Path to the output CSV file
-OUTPUT_PATH = './tagged-politoscope-urls.csv'
+OUTPUT_PATH = './nodes distance v4 with decodex fiability.gexf.csv'
 
 # Name of the column containing the url
-URL_COLUMN = 'attr_home'
+URL_COLUMN = 'url'
 
 # Name of the columns containing category information
 CATEGORIES_COLUMNS = {
-    'Id': 'decodex_id',
-    'attr_home': 'decodex_source',
-    'Fiabilité': 'decodex_fiability',
-    'Catégorie': 'decodex_category',
-    'Orientation contenu': 'decodex_orientation'
+    'fiability': 'decodex_fiability',
+    'slug': 'decodex_slug'
 }
 
 # Name of the column containing the list of a tweet's links
-LINKS_COLUMN = 'url'
+LINKS_COLUMN = 'Label'
 
 # Csv delimiter of the tweet's file
-DELIMITER = ' '
+DELIMITER = ','
 
 # Name of the value given to untagged links in a category
-UNTAGGED_VALUE = 'untagged'
+UNTAGGED_VALUE = ''
 
 # Max number of rows of CSV file to process, useful for debugging
 LIMIT = None
 
 # Should the script avoid to report tweets without links?
-COMPACT = True
+COMPACT = False
 
 # Should the script filter untagged lines?
-FILTER_UNTAGGED = True
+FILTER_UNTAGGED = False
 
 # SCRIPT
 # -----------------------------------------------------------------------------
@@ -178,7 +175,7 @@ for i, row in df.iterrows():
         if row[URL_COLUMN] in URL_BLACK_LIST:
             continue
 
-        URLS[row[URL_COLUMN]][column] = row[column]
+        URLS['http://' + row[URL_COLUMN]][column] = row[column]
 
 # 2) We need to build the LRU Trie
 print('Building LRU Trie...')
@@ -220,7 +217,7 @@ with open(TWEETS_PATH, 'r') as tf, open(OUTPUT_PATH, 'w') as of:
             continue
 
         links = row[LINKS_COLUMN].split('|')
-        links_data = list(trie.longest(link) for link in links)
+        links_data = list(trie.longest('http://' + link) for link in links)
 
         # Filter untagged?
         if FILTER_UNTAGGED and all(d is None for d in links_data):
