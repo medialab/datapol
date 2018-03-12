@@ -3,7 +3,7 @@
 angular.module('app.md', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {
+  $routeProvider.when('/md/', {
     templateUrl: 'src/views/md.html'
   , controller: 'MarkdownController'
   })
