@@ -47,3 +47,7 @@ iFrames just work here.
 Sigma cannot be easily embedded, but iFrames can be a solution. Here is for instance an iFrame for a ManyLines. It requires to host minimal sigma pages in this repository.
 
 <iframe src="http://tools.medialab.sciences-po.fr/manylines/embed#/narrative/290135dd-49a6-4a8e-a730-1e7c8c9c7bb2" width="800" height="480"></iframe>
+
+## Advanced styling
+
+It's possible to use **<span style="color: #AB0000">colors</span> <span style="color: #A000A0">of</span> <span style="color: #6B00A2">any</span> <span style="color: #0000A0">kind</span>** or other advanced styling by using HTML markup.
