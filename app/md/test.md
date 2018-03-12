@@ -3,7 +3,7 @@
 ***This is a TEST markdown page***
 
 
-## Exernal media
+## External media
 
 In pure MD we cannot really embed a media, but we can have an image with a link to it. Alternatively we can use a iframe Embed (see next section).
 
@@ -46,7 +46,14 @@ iFrames just work here.
 
 Sigma cannot be easily embedded, but iFrames can be a solution. Here is for instance an iFrame for a ManyLines. It requires to host minimal sigma pages in this repository.
 
-<iframe src="http://tools.medialab.sciences-po.fr/manylines/embed#/narrative/290135dd-49a6-4a8e-a730-1e7c8c9c7bb2" width="800" height="480"></iframe>
+<iframe 
+	src="http://tools.medialab.sciences-po.fr/manylines/embed#/narrative/290135dd-49a6-4a8e-a730-1e7c8c9c7bb2"
+	width="800"
+	height="480"
+	webkitallowfullscreen
+	mozallowfullscreen
+	allowfullscreen
+></iframe>
 
 ## Advanced styling
 

@@ -14,7 +14,7 @@
 		</div>
 	</div>
 		
-	<div layout="row" style="background-color: #FFF">
+	<div layout="row">
 		<div
 			layout="column"
 		  style="width: 100px"
@@ -25,9 +25,11 @@
 			flex
 			style="font-size: 1.2em; padding-right: 12px;"
 		>
-			<marked layout-fill src="'md/'+mdFile+'.md'">
-				# Page not found :(
-			</marked>
+			<div layout-fill>
+				<marked layout-fill src="'md/'+mdFile+'.md'">
+					# Page not found :(
+				</marked>
+			</div>
 		</div>
 	</div>
 
