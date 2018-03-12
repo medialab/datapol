@@ -26,9 +26,9 @@ It works the same but you need to retrieve the URL of the thumbnail. You can use
 
 ## iFrame
 
-iFrames just work.
+iFrames just work here.
 
-```html
+```
 <iframe
 	src="https://player.vimeo.com/video/90429499"
 	width="640"
@@ -38,9 +38,12 @@ iFrames just work.
 	mozallowfullscreen
 	allowfullscreen
 ></iframe>
-<p>
-	<a href="https://vimeo.com/90429499">Water</a> from <a href="https://vimeo.com/morganmaassen">Morgan Maassen</a> on <a href="https://vimeo.com">Vimeo</a>.
-</p>
 ```
+
 <iframe src="https://player.vimeo.com/video/90429499" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-<p><a href="https://vimeo.com/90429499">Water</a> from <a href="https://vimeo.com/morganmaassen">Morgan Maassen</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+## Sigma
+
+Sigma cannot be easily embedded, but iFrames can be a solution. Here is for instance an iFrame for a ManyLines. It requires to host minimal sigma pages in this repository.
+
+<iframe src="http://tools.medialab.sciences-po.fr/manylines/embed#/narrative/290135dd-49a6-4a8e-a730-1e7c8c9c7bb2" width="800" height="480"></iframe>
