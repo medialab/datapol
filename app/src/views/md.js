@@ -3,7 +3,7 @@
 angular.module('app.md', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/md/', {
+  $routeProvider.when('/md/:mdFile', {
     templateUrl: 'src/views/md.html'
   , controller: 'MarkdownController'
   })
@@ -15,6 +15,7 @@ angular.module('app.md', ['ngRoute'])
 	$timeout,
 	$routeParams
 ) {
+	$scope.mdFile = $routeParams.mdFile
 	
 	
 })
