@@ -65,4 +65,14 @@ You can include Angular directives.
 ```
 <md-button class="md-accent md-raised" ng-href="#!/"><md-icon>home</md-icon> Take me home!</md-button>
 ```
+
 <md-button class="md-accent md-raised" ng-href="#!/"><md-icon>home</md-icon> Take me home!</md-button>
+
+## Datasets
+
+Angular directives include the custom "dataset-info" directive.
+
+```
+Look at this <span info-dataset="corpus-candidats-linkfluence">dataset</span>!
+```
+Look at this <span info-dataset="corpus-candidats-linkfluence">dataset</span>!
