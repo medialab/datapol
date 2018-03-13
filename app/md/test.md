@@ -2,7 +2,6 @@
 
 ***This is a TEST markdown page***
 
-
 ## External media
 
 In pure MD we cannot really embed a media, but we can have an image with a link to it. Alternatively we can use a iframe Embed (see next section).
@@ -58,3 +57,12 @@ Sigma cannot be easily embedded, but iFrames can be a solution. Here is for inst
 ## Advanced styling
 
 It's possible to use **<span style="color: #AB0000">colors</span> <span style="color: #A000A0">of</span> <span style="color: #6B00A2">any</span> <span style="color: #0000A0">kind</span>** or other advanced styling by using HTML markup.
+
+## Angular directives
+
+You can include Angular directives.
+
+```
+<md-button class="md-accent md-raised" ng-href="#!/"><md-icon>home</md-icon> Take me home!</md-button>
+```
+<md-button class="md-accent md-raised" ng-href="#!/"><md-icon>home</md-icon> Take me home!</md-button>
