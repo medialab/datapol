@@ -26,5 +26,22 @@ angular.module('app.services', [])
       return ns.index[id.toLocaleLowerCase()]
     }
 
+    ns.getAll = function(options) {
+    	options = options || {}
+
+    	if (options.sort && options.sort=='licence') {
+    		var sortLicence = function(licence){
+    			if (licence == 'confidentiel') {
+    				return 'zzz'
+    			} else return licence
+    		}
+    		return ns.datasets.sort(function(a, b){
+    			if (a == b) return 0
+    			if (sortLicence(a) < sortLicence(b)) return -1
+    			return 1
+    		})
+    	} else return ns.datasets
+    }
+
     return ns
   }])
