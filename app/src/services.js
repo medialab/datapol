@@ -14,7 +14,6 @@ angular.module('app.services', [])
         licence: 'confidentiel',
         auteurs: 'Linkfluence / Guilhem Fouetillou',
         description: 'Ecoute des réseaux sociaux (Twitter, Instagram, Facebook…)'
-      },{
       }
     ]
 
@@ -23,7 +22,7 @@ angular.module('app.services', [])
     	ns.index[d.id] = d
     })
 
-    ns.getDatasetInfo = function (id) {
+    ns.get = function (id) {
       return ns.index[id.toLocaleLowerCase()]
     }
 
