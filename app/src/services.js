@@ -53,6 +53,43 @@ angular.module('app.services', [])
         authors: 'Données Trends : Google. Extraction et sélection : Sciences Po médialab',
         contact: 'medialab@sciencespo.fr',
         link: 'https://github.com/medialab/datapol/tree/master/data/google-trends'
+      },{
+      	id: 'nos-deputes',
+        title: 'Nos Députés (Regards Citoyens)',
+        licence: 'ODBL',
+        authors: 'Assemblée nationale et Regards Citoyens',
+        contact: 'benjamin.ooghe@sciencespo.fr',
+        link: 'https://github.com/regardscitoyens/nosdeputes.fr/blob/master/doc/opendata.md'
+      },{
+      	id: 'elipss',
+        title: 'Réponses aux vagues de questions Dynamob sur le panel Elipss',
+        licence: 'confidentiel',
+        authors: 'Vincent TIBERJ et Florent GOUGOU (Centre d\'études européennes, Sciences Po), Équipe Dynamob, Équipe Elipss',
+        contact: 'info.cdsp@sciencespo.fr'
+      },{
+      	id: 'ina',
+        title: 'Archive Twitter INA Elections 2017',
+        licence: 'confidentiel',
+        authors: 'Lucien Castex (sourcing), Zeynep Pehlivan (captation, indexation, outil)',
+        contact: 'dlweb@ina.fr'
+      },{
+      	id: 'listic-twitter',
+        title: 'Tweets sur FN/Fachosphère formatés pour traitement lexicographique de Listic',
+        licence: 'confidentiel',
+        authors: 'Guillaume Cabanac est maître de conférences HDR en informatique à l\'Institut de recherche en informatique de Toulouse (UMR 5505 CNRS), Université 3 - Paul Sabatier. Julien Figeac, porteur du projet, est chargé de recherche au CNRS en sociologie (section 36 et CID 53). Il est membre du LISST de l’Université Toulouse 2. Ophélie Fraisier, est Doctorante, chargée de cours, en Informatique à l\'Institut de recherche en informatique de Toulouse (UMR 5505 CNRS), Université 3 - Paul Sabatier. Xavier Milliner, est assistant de recherche CNRS, LISST de l’Université Toulouse 2 – Jean Jaurès. Pierre Ratinaud est MCF en Sciences de l’Education au département des sciences de l’éducation et de la formation de l’Université de Toulouse 2 – Jean Jaurès et membre du LERASS à l’Université Toulouse 3 – Paul Sabatier. Tristan Salord, est assistant de recherche CNRS, LISST de l’Université Toulouse 2 – Jean Jaurès. Ancien Doctorant en Sociologie, Chargé de projets. Fanny Seffusatti, est assistante de recherche CNRS, LISST de l’Université Toulouse 2 – Jean Jaurès. Nikos Smyrnaios est MCF en Sciences de l’Information et de la Communication et membre du LERASS à l’Université Toulouse 3 – Paul Sabatier.',
+        contact: 'julien.figeac@univ-tlse2.fr'
+      },{
+      	id: 'listic-facebook',
+        title: 'Données Facebook (via Netvizz) sur FN/Fachosphère de Listic',
+        licence: 'confidentiel',
+        authors: 'Guillaume Cabanac est maître de conférences HDR en informatique à l\'Institut de recherche en informatique de Toulouse (UMR 5505 CNRS), Université 3 - Paul Sabatier. Julien Figeac, porteur du projet, est chargé de recherche au CNRS en sociologie (section 36 et CID 53). Il est membre du LISST de l’Université Toulouse 2. Ophélie Fraisier, est Doctorante, chargée de cours, en Informatique à l\'Institut de recherche en informatique de Toulouse (UMR 5505 CNRS), Université 3 - Paul Sabatier. Xavier Milliner, est assistant de recherche CNRS, LISST de l’Université Toulouse 2 – Jean Jaurès. Pierre Ratinaud est MCF en Sciences de l’Education au département des sciences de l’éducation et de la formation de l’Université de Toulouse 2 – Jean Jaurès et membre du LERASS à l’Université Toulouse 3 – Paul Sabatier. Tristan Salord, est assistant de recherche CNRS, LISST de l’Université Toulouse 2 – Jean Jaurès. Ancien Doctorant en Sociologie, Chargé de projets. Fanny Seffusatti, est assistante de recherche CNRS, LISST de l’Université Toulouse 2 – Jean Jaurès. Nikos Smyrnaios est MCF en Sciences de l’Information et de la Communication et membre du LERASS à l’Université Toulouse 3 – Paul Sabatier.',
+        contact: 'julien.figeac@univ-tlse2.fr'
+      },{
+      	id: 'listic-facebook-urls',
+        title: 'Liste d’URLs partagées sur pages Facebook politisées',
+        licence: 'ODBL',
+        authors: 'Guillaume Cabanac, Julien Figeac, Ophélie Fraisier, Xavier Milliner, Pierre Ratinaud, Tristan Salord, Fanny Seffusatti, Nikos Smyrnaios',
+        contact: 'julien.figeac@univ-tlse2.fr'
       }
     ]
 
@@ -82,8 +119,8 @@ angular.module('app.services', [])
     			} else return licence
     		}
     		return ns.datasets.sort(function(a, b){
-    			if (a == b) return 0
-    			if (sortLicence(a) < sortLicence(b)) return -1
+    			if (a.licence == b.licence) return 0
+    			if (sortLicence(a.licence) < sortLicence(b.licence)) return -1
     			return 1
     		})
     	} else return ns.datasets
