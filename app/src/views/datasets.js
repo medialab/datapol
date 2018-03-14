@@ -21,6 +21,6 @@ angular.module('app.datasets', ['ngRoute'])
 	datasets
 ) {
 	
-	$scope.datasets = datasets.getAll()
+	$scope.datasets = datasets.getAll({sort:'licence'})
 	
 })

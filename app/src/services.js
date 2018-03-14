@@ -45,14 +45,14 @@ angular.module('app.services', [])
         title: 'Catégories du Décodex (Le Monde et Sciences Po médialab)',
         licence: 'ODBL',
         authors: 'Décodex en lui-même : Les Décodeurs (Le Monde). Catégories additionnelles : Mathieu Jacomy (Sciences Po médialab)',
-        contact: 'mathieu.jacomy@sciencespo.fr',
-        link: 'http://www.lemonde.fr/verification/'
+        contact: 'mathieu.jacomy@sciencespo.fr'
       },{
       	id: 'google-trends',
         title: 'Extractions Google Trends de la campagne électorale',
         licence: 'ODBL',
         authors: 'Données Trends : Google. Extraction et sélection : Sciences Po médialab',
-        contact: 'medialab@sciencespo.fr'
+        contact: 'medialab@sciencespo.fr',
+        link: 'https://github.com/medialab/datapol/tree/master/data/google-trends'
       }
     ]
 

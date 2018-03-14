@@ -37,11 +37,22 @@
 						    </md-card-header-text>
 						  </md-card-header>
 						  <md-card-content>
+						  	<div ng-if="dataset.link" style="width: 100%">
+						  		<md-button class="md-accent md-raised" layout-fill ng-href="{{dataset.link}}">
+						  			<md-icon>link</md-icon>
+						  			Accéder aux données
+						  		</md-button>
+						  	</div>
 						  	<div ng-bind-html='dataset.description'></div>
 						  	<div class="md-caption">
 						  		<strong>Auteurs</strong>
 						  		<br>
 						  		{{dataset.authors}}
+						  		<br>
+						  		<br>
+						  		<strong>Contact</strong>
+						  		<br>
+						  		{{dataset.contact}}
 						  	</div>
 						  </md-card-content>
 						</md-card>
