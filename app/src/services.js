@@ -33,6 +33,26 @@ angular.module('app.services', [])
         authors: 'CEVIPOF : Diégo Antolinos-Basso, Odile Gaultier-Voituriez et Thierry Vedel (chercheur référent). Médialab : Audrey Baneyx, Mathieu Jacomy, Benjamin Ooghe-Tabanou. Bibliothèque : Laurent Bajon, Anita Beldiman-Moore, Anne L’Hôte, Zohra Mechri, Meryam Maizi, Cynthia Pedroja, Myriam Tazi',
         contact: 'cynthia.pedroja@sciencespo.fr',
         link: 'http://corpusweb.sciencespo.fr/#/en/election-presidentielle-2017/view/grid'
+      },{
+      	id: 'ideo-2017',
+        title: 'Tweets des candidats à la présidentielle, par IDEO 2017',
+        licence: 'CC-BY-SA',
+        authors: 'Laboratoires producteurs : AGORA - Laboratoire AGORA (Cergy-Pontoise, France), ETIS - Equipes Traitement de l\'Information et Systèmes (Cergy-Pontoise, France). Soutien institutionnel : Fondation UCP (Cergy-Pontoise, France), CORLI - Consortium CORLI - Corpus, Langues, Interactions ',
+        contact: 'julien.longhi@u-cergy.fr',
+        link: 'https://www.ortolang.fr/market/corpora/corpus-presidentielle2017'
+      },{
+      	id: 'crawl-decodex',
+        title: 'Catégories du Décodex (Le Monde et Sciences Po médialab)',
+        licence: 'ODBL',
+        authors: 'Décodex en lui-même : Les Décodeurs (Le Monde). Catégories additionnelles : Mathieu Jacomy (Sciences Po médialab)',
+        contact: 'mathieu.jacomy@sciencespo.fr',
+        link: 'http://www.lemonde.fr/verification/'
+      },{
+      	id: 'google-trends',
+        title: 'Extractions Google Trends de la campagne électorale',
+        licence: 'ODBL',
+        authors: 'Données Trends : Google. Extraction et sélection : Sciences Po médialab',
+        contact: 'medialab@sciencespo.fr'
       }
     ]
 
