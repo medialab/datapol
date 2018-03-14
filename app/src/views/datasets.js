@@ -17,9 +17,10 @@ angular.module('app.datasets', ['ngRoute'])
 	$scope,
 	$location,
 	$timeout,
-	$routeParams
+	$routeParams,
+	datasets
 ) {
-	$scope.mdFile = $routeParams.mdFile
 	
+	$scope.datasets = datasets.getAll()
 	
 })
