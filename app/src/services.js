@@ -45,7 +45,8 @@ angular.module('app.services', [])
         title: 'Catégories du Décodex (Le Monde et Sciences Po médialab)',
         licence: 'ODBL',
         authors: 'Décodex en lui-même : Les Décodeurs (Le Monde). Catégories additionnelles : Mathieu Jacomy (Sciences Po médialab)',
-        contact: 'mathieu.jacomy@sciencespo.fr'
+        contact: 'mathieu.jacomy@sciencespo.fr',
+        link: 'https://github.com/medialab/datapol/tree/master/data/crawl-decodex'
       },{
       	id: 'google-trends',
         title: 'Extractions Google Trends de la campagne électorale',
@@ -89,7 +90,8 @@ angular.module('app.services', [])
         title: 'Liste d’URLs partagées sur pages Facebook politisées',
         licence: 'ODBL',
         authors: 'Guillaume Cabanac, Julien Figeac, Ophélie Fraisier, Xavier Milliner, Pierre Ratinaud, Tristan Salord, Fanny Seffusatti, Nikos Smyrnaios',
-        contact: 'julien.figeac@univ-tlse2.fr'
+        contact: 'julien.figeac@univ-tlse2.fr',
+        link: 'https://github.com/medialab/datapol/tree/master/data/listic-facebook-urls'
       },{
       	id: 'videos-metrics-factory',
         title: 'Vidéos Candidats Facebook (The Metrics Factory)',
