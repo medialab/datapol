@@ -26,6 +26,13 @@ angular.module('app.services', [])
         licence: 'confidentiel',
         authors: 'Institut des Systèmes Complexes de Paris Ile-de-France (ISC-PIF) sous la responsabilité de David Chavalarias. David Chavalarias (CNRS/EHESS, ISC-PIF/CAMS), responsable scientifique, data-mining & visualisations. Maziyar Panahi (CNRS, ISC-PIF) : responsable de l’infrastructure Big Data, chef de projet Multivac. Noé Gaumont (CNRS/EHESS, CAMS/ISC-PIF) : analyse des réseaux. Alexandre Delanoë (CNRS, ISC-PIF) : fouille de texte, chef de projet Gargantext.',
         contact: 'david.chavalarias@iscpif.fr'
+      },{
+      	id: 'sitotheque-bib',
+        title: 'Sitothèque élections 2017 de la Bibliothèque de Sciences Po',
+        licence: 'ODBL',
+        authors: 'CEVIPOF : Diégo Antolinos-Basso, Odile Gaultier-Voituriez et Thierry Vedel (chercheur référent). Médialab : Audrey Baneyx, Mathieu Jacomy, Benjamin Ooghe-Tabanou. Bibliothèque : Laurent Bajon, Anita Beldiman-Moore, Anne L’Hôte, Zohra Mechri, Meryam Maizi, Cynthia Pedroja, Myriam Tazi',
+        contact: 'cynthia.pedroja@sciencespo.fr',
+        link: 'http://corpusweb.sciencespo.fr/#/en/election-presidentielle-2017/view/grid'
       }
     ]
 
