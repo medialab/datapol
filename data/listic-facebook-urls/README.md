@@ -1,4 +1,4 @@
-# Liste de pages web ayant circulé dans des pages Facebook politisées.**
+# Liste de pages web ayant circulé dans des pages Facebook politisées.
 
 Origine : Facebook
 
@@ -15,3 +15,7 @@ Guillaume Cabanac, Julien Figeac (coord.), Ophélie Fraisier, Xavier Milliner, P
 
 julien.figeac@univ-tlse2.fr
 
+## Licence ODbL
+
+[ODC Open Database License](http://vvlibri.org/en/licence/odbl-10/legalcode/official)
+(version française)
