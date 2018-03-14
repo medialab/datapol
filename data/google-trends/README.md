@@ -1,4 +1,16 @@
-# Google Trends - Méthodologie
+# Extractions Google Trends
+
+Origine : Google Trends
+
+Critère de sélection : sélection de mots-clés manuelle
+
+Temporalité de la collecte : Données du 1er janvier au 30 juin 2017
+
+## Licence ODbL
+
+[ODC Open Database License](http://vvlibri.org/en/licence/odbl-10/legalcode/official)
+
+# Méthodologie
 
 ## Mots-clés
 

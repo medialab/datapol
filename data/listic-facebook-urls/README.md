@@ -18,4 +18,3 @@ julien.figeac@univ-tlse2.fr
 ## Licence ODbL
 
 [ODC Open Database License](http://vvlibri.org/en/licence/odbl-10/legalcode/official)
-(version française)
