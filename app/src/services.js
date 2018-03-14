@@ -90,6 +90,30 @@ angular.module('app.services', [])
         licence: 'ODBL',
         authors: 'Guillaume Cabanac, Julien Figeac, Ophélie Fraisier, Xavier Milliner, Pierre Ratinaud, Tristan Salord, Fanny Seffusatti, Nikos Smyrnaios',
         contact: 'julien.figeac@univ-tlse2.fr'
+      },{
+      	id: 'videos-metrics-factory',
+        title: 'Vidéos Candidats Facebook (The Metrics Factory)',
+        licence: 'confidentiel',
+        authors: 'Rémi Douine est fondateur de The Metrics Factory et enseignant à Sciences-Po, Quentin Gressien est consultant sénior de The Metrics Factory et enseignant à IAE Paris, Erwan Le Nagard est directeur de l’Engagement Labs de The Metrics Factory et enseignant au CELSA, Jérémy Danulot est consultant à The Metrics Factory, Mélissa Dubois est consultante à The Metrics Factory, Ivan Ferret est consultant à The Metrics Factory, Maud Hermosa est consultante à The Metrics Factory, Pierre-Marie Labry est consultant à The Metrics Factory, Yasmine Nennouche est consultante à The Metrics Factory, Aurélie Santos est consultante à The Metrics Factory.',
+        contact: 'douine@themetricsfactory.com'
+      },{
+      	id: 'ens-insoumis',
+        title: 'Echanges des Insoumis sur les réseaux sociaux (ENS)',
+        licence: 'confidentiel',
+        authors: 'Zakarya Després (Lattice), Clément Plancq (Lattice)',
+        contact: 'zakarya.despres@gmail.com'
+      },{
+      	id: 'diasporas-lab',
+        title: 'Titres d’articles consultés sur postes publics (Diasporas Lab)',
+        licence: 'confidentiel',
+        authors: 'Diasporas Lab : Dana Diminescu et Quentin Lobbé',
+        contact: 'dana.diminescu@telecom-paristech.fr'
+      },{
+      	id: 'tweets-deputes',
+        title: 'Tweets des députés (Sciences Po médialab)',
+        licence: 'confidentiel',
+        authors: 'Sciences Po médialab',
+        contact: 'benjamin.ooghe@sciencespo.fr'
       }
     ]
 
