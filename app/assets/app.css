@@ -1,0 +1,36 @@
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+marked {
+  display: block;
+  max-width: 900px;
+}
+
+hR {
+  background-color: white;
+  border: none;
+  height: 1px;
+  margin: 1em 0 1em;
+}
+
+table {
+  margin:  2em 0 2em;
+}
+
+img + em {
+
+  color: grey;
+  font-size: 0.8em;
+  text-align: center;
+  padding: 1em;
+  display: block;
+
+}
+
+.contribs {
+  font-size: 0.8em;
+
+}
