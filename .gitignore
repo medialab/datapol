@@ -7,6 +7,7 @@ tmp
 .idea
 app/jspm_packages
 
+app/md/*-raw
 
 # Windows image file caches
 Thumbs.db
