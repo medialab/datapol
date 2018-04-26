@@ -15,12 +15,18 @@
     <link rel="stylesheet" href="assets/app.css"/>
 
     <style type="text/css">
-        /**
-         * Hide when Angular is not yet loaded and initialized
-         */
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-          display: none !important;
-        }
+
+/**
+ * Hide when Angular is not yet loaded and initialized
+ */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.definition {
+  text-decoration-style: dotted;
+}
+
     </style>
 
   </head>
@@ -53,6 +59,7 @@
     <script type="text/javascript"  src="src/directives.js"></script>
     <script type="text/javascript"  src="src/filters.js"></script>
     <script type="text/javascript"  src="src/views/home.js"></script>
+    <script type="text/javascript"  src="src/views/datasets.js"></script>
     <script type="text/javascript"  src="src/views/md.js"></script>
 
     <script type="text/javascript">
@@ -67,6 +74,7 @@ angular
   'app.directives',
   'app.filters',
   'app.home',
+  'app.datasets',
   'app.md'
 ])
 
