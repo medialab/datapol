@@ -45,3 +45,11 @@ span.contribs {
     border-bottom: 1px solid black;
     cursor: help;
 }
+span.gly-media, span.gly-societal, span.gly-pol {
+  font-weight: bold;
+}
+
+
+span.gly-media{ color:#d05452;}
+span.gly-societal { color:#6d91c5;}
+span.gly-pol { color:#dcd01f;}
