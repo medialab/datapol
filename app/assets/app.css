@@ -16,6 +16,9 @@ hR {
   margin: 1em 0 1em;
 }
 
+p {
+  line-height: 1.5em;
+}
 table {
   margin:  2em 0 2em;
 }
@@ -25,12 +28,20 @@ img + em {
   color: grey;
   font-size: 0.8em;
   text-align: center;
-  padding: 1em;
+  padding: 0.8em;
   display: block;
 
 }
 
-.contribs {
+span.contribs {
   font-size: 0.8em;
+  line-height: 1.3em;
+  display: block;
+}
 
+.definition {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid black;
+    cursor: help;
 }
