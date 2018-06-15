@@ -1,10 +1,12 @@
-## Comparaison et circulation des idéologies : comment mesurer l’utilisation et l’efficacité des idéologies dans la campagne présidentielle ?
 
-<span class="contribs">Julien Longhi, Claudia Marinica, Abdulhafiz Alkhouli, Clément Plancq, Axel Meunier, Agata Brilli, Zakarya Després, Friederike Richter, Emmanuelle Coniquet, Paige Camerino – Adil Ouafssou, Audrey Baneyx, Mamy Rakotondravohitra, Amalia Nikolaidi, Mathieu Ouagazzal, Boris Borzic, Mathias Quoy, Savinien de Rivet, Abdelouafi El Otmani</span>
+## Comparaison et circulation des idéologies : comment mesurer l’utilisation et l’efficacité des idéologies dans la campagne présidentielle ?
+<span class="contribs">Julien Longhi, Claudia Marinica, Abdulhafiz Alkhouli, Clément Plancq, Axel Meunier, Agata Brilli, Zakarya Després, Friederike Richter, Emmanuelle Coniquet, Paige Camerino, Adil Ouafssou, Audrey Baneyx, Mamy Rakotondravohitra, Amalia Nikolaidi, Mathieu Ouagazzal, Boris Borzic, Mathias Quoy, Savinien de Rivet, Abdelouafi El Otmani.</span>
 ### L’idéologie dans le discours
 
 Afin d’identifier dans ce corpus les messages idéologiques, nous avons testé deux approches. La première s’intéresse aux idéologies dans le discours, la seconde à l’univers politique des candidats.
-Avant d’entrer plus en détail il nous faut définir comment se caractérise une idéologie. Le choix est fait de prendre une définition venue de la linguistique et de l’analyse du discours qui nous dit que l’idéologie est :
+Avant d’entrer plus en détail il nous faut définir comment se caractérise une idéologie.
+
+Nous choisissons une définition venue de la linguistique et de l’analyse du discours selon laquelle l’idéologie est :
 
 |                                                 |                                                  |
 | ----------------------------------------------- | ------------------------------------------------ |
